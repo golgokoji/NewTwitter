@@ -37,14 +37,14 @@ export const PostForm = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 bg-white dark:bg-gray-900 border-b lg:rounded-b-2xl lg:border-none lg:shadow-xl lg:mt-4 border-gray-200 dark:border-gray-800 transition-all duration-300">
+    <div className="w-full max-w-2xl mx-auto p-4 bg-[var(--card-bg)] border-b lg:border lg:rounded-2xl lg:shadow-md border-[var(--border-color)] transition-colors duration-300">
       <form onSubmit={handleSubmit} className="flex gap-4">
         <div className="shrink-0 mt-1">
           {user.photoURL ? (
             <img
               src={user.photoURL}
               alt={user.displayName || "User"}
-              className="w-10 h-10 rounded-full object-cover border border-gray-100 dark:border-gray-800"
+              className="w-10 h-10 rounded-full object-cover border border-[var(--border-color)]"
             />
           ) : (
             <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center font-bold text-blue-600 dark:text-blue-400">
@@ -57,13 +57,13 @@ export const PostForm = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="What is happening?!"
-            className="w-full bg-transparent text-xl resize-none outline-none placeholder:text-gray-500 py-2 dark:text-white"
-            rows={Math.max(1, Math.min(content.split("\\n").length, 8))}
+            className="w-full bg-transparent text-xl resize-none outline-none placeholder:text-gray-500 py-2 text-[var(--text)]"
+            rows={Math.max(1, Math.min(content.split("\n").length, 8))}
             maxLength={280}
             disabled={isSubmitting}
           />
-          <div className="flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-3">
-            <span className="text-xs text-gray-400">
+          <div className="flex items-center justify-between border-t border-[var(--border-color)] pt-3">
+            <span className="text-xs text-gray-500">
               {content.length > 0 && `${content.length} / 280`}
             </span>
             <button
